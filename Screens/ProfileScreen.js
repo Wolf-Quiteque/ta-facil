@@ -20,6 +20,11 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 const ProfileScreen = () => {
   return (
     <>
+      <Center>
+        <Heading alignItems="center" fontSize="xl" p="4" pb="3">
+          Agente
+        </Heading>
+      </Center>
       <Box
         borderBottomWidth="1"
         _dark={{
