@@ -20,6 +20,7 @@ const AddScreen = () => {
   return (
     <>
       <Stack
+        mt="5"
         space={2.5}
         alignSelf="center"
         px="4"
@@ -30,9 +31,6 @@ const AddScreen = () => {
         }}
       >
         <Box>
-          <Text bold fontSize="xl" mb="4">
-            Novo Pedido
-          </Text>
           <FormControl mb="5">
             <FormControl.Label>Numero BI</FormControl.Label>
             <Input variant="filled" placeholder="Digite o Numero do BI" />
@@ -55,11 +53,11 @@ const AddScreen = () => {
             >
               <Select.Item label="BI" value="ux" />
               <Select.Item label="Passaporte" value="web" />
-              <Select.Item label="Livrete" value="cross" />
+              <Select.Item label="Livrete Automóvel" value="cross" />
               <Select.Item label="Carta de Condução" value="ui" />
-              <Select.Item label="Carta de Condução" value="ui" />
-              <Select.Item label="Carta de Condução" value="ui" />
-              <Select.Item label="Backend Development" value="backend" />
+              <Select.Item label="Visto" value="ui" />
+              <Select.Item label="Cartão Multicaixa" value="ui" />
+              <Select.Item label="Outros" value="ui" />
             </Select>
           </FormControl>
           <Divider />

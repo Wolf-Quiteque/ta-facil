@@ -61,13 +61,7 @@ const ActivityScreen = () => {
 
   return (
     <>
-      <Center>
-        <Heading alignItems="center" fontSize="xl" p="4" pb="3">
-          Pedidos
-        </Heading>
-      </Center>
-
-      <VStack w="100%" space={5} alignSelf="center">
+      <VStack mt="5" w="100%" space={5} alignSelf="center">
         <Input
           placeholder="Pesquisa"
           variant="filled"

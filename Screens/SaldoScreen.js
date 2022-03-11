@@ -23,7 +23,7 @@ import Ionic from "react-native-vector-icons/Ionicons";
 const SaldoScreen = () => {
   return (
     <>
-      <HStack space={1} justifyContent="center">
+      <HStack mt="5" space={1} justifyContent="center">
         <Box
           maxW="96"
           borderWidth="1"

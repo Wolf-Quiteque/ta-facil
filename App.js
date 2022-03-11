@@ -31,7 +31,7 @@ export default function App() {
                 if (route.name === "Ta Fácil") {
                   iconName = focused ? "home" : "home-outline";
                   size = focused ? size + 8 : size + 5;
-                } else if (route.name === "Pesquisa") {
+                } else if (route.name === "Saldo") {
                   iconName = focused ? "server" : "server-outline";
                   size = focused ? size + 8 : size + 5;
                 } else if (route.name === "Pedido") {
@@ -60,7 +60,7 @@ export default function App() {
             }}
           >
             <Tab.Screen name="Ta Fácil" component={HomeScreen}></Tab.Screen>
-            <Tab.Screen name="Pesquisa" component={SaldoScreen}></Tab.Screen>
+            <Tab.Screen name="Saldo" component={SaldoScreen}></Tab.Screen>
             <Tab.Screen name="Pedido" component={AddScreen}></Tab.Screen>
             <Tab.Screen
               name="Actividade"
