@@ -40,7 +40,7 @@ export default function App() {
                 } else if (route.name === "Actividade") {
                   iconName = focused ? "heart-circle" : "heart-circle-outline";
                   size = focused ? size + 8 : size + 5;
-                } else if (route.name === "Prefil") {
+                } else if (route.name === "Conta") {
                   iconName = focused
                     ? "person-circle"
                     : "person-circle-outline";
@@ -66,7 +66,7 @@ export default function App() {
               name="Actividade"
               component={ActivityScreen}
             ></Tab.Screen>
-            <Tab.Screen name="Prefil" component={ProfileScreen}></Tab.Screen>
+            <Tab.Screen name="Conta" component={ProfileScreen}></Tab.Screen>
           </Tab.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

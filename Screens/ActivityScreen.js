@@ -9,6 +9,9 @@ import {
   Input,
   Icon,
   Spacer,
+  FormControl,
+  Select,
+  Badge,
   Center,
   NativeBaseProvider,
 } from "native-base";
@@ -20,7 +23,11 @@ const ActivityScreen = () => {
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
       fullName: "Almeida Cândido",
-      timeStamp: "01/02/22 12:47 ",
+      timeStamp: (
+        <Badge bg="green.600">
+          <Text color="white">Pronto</Text>
+        </Badge>
+      ),
       recentText: "Passaporte",
       avatarUrl:
         "https://cdn.icon-icons.com/icons2/1581/PNG/512/3668844-clock-pending-transaction-wait_108015.png",
@@ -28,7 +35,11 @@ const ActivityScreen = () => {
     {
       id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
       fullName: "Amâncio Mathur",
-      timeStamp: "02/15/22 11:11",
+      timeStamp: (
+        <Badge bg="yellow.400">
+          <Text color="white">Pendente</Text>
+        </Badge>
+      ),
       recentText: "BI",
       avatarUrl:
         "https://cdn.icon-icons.com/icons2/1581/PNG/512/3668844-clock-pending-transaction-wait_108015.png",
@@ -36,7 +47,11 @@ const ActivityScreen = () => {
     {
       id: "58694a0f-3da1-471f-bd96-145571e29d72",
       fullName: "Nataniel Fernandos",
-      timeStamp: "02/22/22 6:22",
+      timeStamp: (
+        <Badge bg="yellow.400">
+          <Text color="white">Pendente</Text>
+        </Badge>
+      ),
       recentText: "Livrete",
       avatarUrl:
         "https://cdn.icon-icons.com/icons2/1581/PNG/512/3668844-clock-pending-transaction-wait_108015.png",
@@ -44,7 +59,11 @@ const ActivityScreen = () => {
     {
       id: "68694a0f-3da1-431f-bd56-142371e29d72",
       fullName: "Aniket Kumar",
-      timeStamp: "03/03/22 8:56",
+      timeStamp: (
+        <Badge bg="green.600">
+          <Text color="white"> Pronto</Text>
+        </Badge>
+      ),
       recentText: "BI",
       avatarUrl:
         "https://cdn.icon-icons.com/icons2/1581/PNG/512/3668844-clock-pending-transaction-wait_108015.png",
@@ -52,7 +71,11 @@ const ActivityScreen = () => {
     {
       id: "28694a0f-3da1-471f-bd96-142456e29d72",
       fullName: "Márcio Quiteque",
-      timeStamp: "03/03/22 12:47",
+      timeStamp: (
+        <Badge bg="yellow.400">
+          <Text color="white">Pendente</Text>
+        </Badge>
+      ),
       recentText: "Passaporte",
       avatarUrl:
         "https://cdn.icon-icons.com/icons2/1581/PNG/512/3668844-clock-pending-transaction-wait_108015.png",
@@ -61,7 +84,7 @@ const ActivityScreen = () => {
 
   return (
     <>
-      <VStack mt="5" w="100%" space={5} alignSelf="center">
+      <VStack mt="5" w="95%" space={5} alignSelf="center">
         <Input
           placeholder="Pesquisa"
           variant="filled"
@@ -79,6 +102,24 @@ const ActivityScreen = () => {
             />
           }
         />
+        <FormControl mb="2">
+          <Select
+            // selectedValue={service}
+            minWidth="200"
+            accessibilityLabel="Estado"
+            placeholder="Seleciona o Estado"
+            _selectedItem={{
+              bg: "teal.600",
+              endIcon: <FontAwesome5 name="check" color="#f2aa00" size={30} />,
+            }}
+            mt={1}
+            // onValueChange={(itemValue) => setService(itemValue)}
+          >
+            <Select.Item label="Pendente" value="ux" />
+            <Select.Item label="Pronto" value="web" />
+            <Select.Item label="Entregue" value="cross" />
+          </Select>
+        </FormControl>
       </VStack>
       <Box mt="5">
         <FlatList
@@ -137,23 +178,6 @@ const ActivityScreen = () => {
           keyExtractor={(item) => item.id}
         />
       </Box>
-      <HStack mt="5" mb="10" space={6} justifyContent="center">
-        <Center h="20" w="20" bg="coolGray.700" rounded="md" shadow={3}>
-          <FontAwesome5 name="hand-holding" color="#f2aa00" size={30} />
-
-          <Text color="white" bold>
-            Pendentes
-          </Text>
-        </Center>
-
-        <Center h="20" w="20" bg="coolGray.700" rounded="md" shadow={3}>
-          {" "}
-          <FontAwesome5 name="hand-holding-heart" color="#f2aa00" size={30} />
-          <Text color="white" bold>
-            Prontos
-          </Text>{" "}
-        </Center>
-      </HStack>
     </>
   );
 };
