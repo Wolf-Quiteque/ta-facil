@@ -61,7 +61,7 @@ const ActivityScreen = () => {
       fullName: "Aniket Kumar",
       timeStamp: (
         <Badge bg="green.600">
-          <Text color="white"> Pronto</Text>
+          <Text color="white">  Pronto</Text>
         </Badge>
       ),
       recentText: "BI",
