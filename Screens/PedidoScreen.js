@@ -18,6 +18,8 @@ import {
 } from "native-base";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useEffect, useState, useRef } from "react";
+import { View } from "react-native";
+
 import axios from "axios";
 
 const PedidoScreen = () => {
@@ -46,7 +48,7 @@ const PedidoScreen = () => {
   };
 
   return (
-    <>
+    <View>
       <Stack
         mt="5"
         space={2.5}
@@ -185,7 +187,7 @@ const PedidoScreen = () => {
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>
-    </>
+    </View>
   );
 };
 

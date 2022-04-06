@@ -19,6 +19,7 @@ import {
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import { View } from "react-native";
 
 const AddScreen = () => {
   const [bi, setbi] = useState();
@@ -43,7 +44,7 @@ const AddScreen = () => {
   };
 
   return (
-    <>
+    <View>
       <Stack
         mt="5"
         space={2.5}
@@ -171,7 +172,7 @@ const AddScreen = () => {
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>
-    </>
+    </View>
   );
 };
 

@@ -16,10 +16,11 @@ import {
 } from "native-base";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { View } from "react-native";
 
 const ProfileScreen = () => {
   return (
-    <>
+    <View>
       <Center>
         <Heading alignItems="center" fontSize="xl" p="4" pb="3">
           Agente
@@ -69,7 +70,7 @@ const ProfileScreen = () => {
           </Text>{" "}
         </Center>
       </HStack>
-    </>
+    </View>
   );
 };
 

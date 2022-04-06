@@ -19,10 +19,11 @@ import {
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Ionic from "react-native-vector-icons/Ionicons";
+import { View } from "react-native";
 
 const SaldoScreen = () => {
   return (
-    <>
+    <View>
       <HStack mt="5" space={1} justifyContent="center">
         <Box
           maxW="96"
@@ -74,7 +75,7 @@ const SaldoScreen = () => {
           </Text>{" "}
         </Center>
       </HStack>
-    </>
+    </View>
   );
 };
 

@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import Ionic from "react-native-vector-icons/Ionicons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import "react-native-gesture-handler";
 
 import BottomTabNavigator from "./navigation/TabNavigator";
 
@@ -13,19 +14,19 @@ import axios from "axios";
 
 import { MainStackNavigator } from "./navigation/StackNavigator";
 
-// axios.defaults.baseURL = "https://emainvest.herokuapp.com/api";
-axios.defaults.baseURL = "http://localhost:8800/api/";
+axios.defaults.baseURL = "https://emainvest.herokuapp.com/api/";
+// axios.defaults.baseURL = "http://localhost:8800/api/";
 
 export default function App() {
   const Tab = createBottomTabNavigator();
   return (
     <>
-      <NativeBaseProvider>
+      <NavigationContainer>
         <StatusBar backgroundColor="#54cbff" barStyle="dark-content" />
-        <NavigationContainer>
+        <NativeBaseProvider>
           <BottomTabNavigator />
-        </NavigationContainer>
-      </NativeBaseProvider>
+        </NativeBaseProvider>
+      </NavigationContainer>
     </>
   );
 }

@@ -86,7 +86,7 @@ const EntregaScreen = () => {
   //   });
 
   return (
-    <>
+    <View>
       <Stack
         mt="5"
         space={2.5}
@@ -239,7 +239,7 @@ const EntregaScreen = () => {
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>
-    </>
+    </View>
   );
 };
 

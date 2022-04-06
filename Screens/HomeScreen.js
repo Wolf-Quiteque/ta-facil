@@ -16,10 +16,11 @@ import {
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Ionic from "react-native-vector-icons/Ionicons";
+import { View } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <>
+    <View>
       <Center>
         <VStack
           my="4"
@@ -150,7 +151,7 @@ const HomeScreen = ({ navigation }) => {
           </Center>
         </Button>
       </HStack>
-    </>
+    </View>
   );
 };
 

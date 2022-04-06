@@ -17,6 +17,7 @@ import {
 } from "native-base";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { View } from "react-native";
 
 const ActivityScreen = () => {
   const data = [
@@ -61,7 +62,7 @@ const ActivityScreen = () => {
       fullName: "Aniket Kumar",
       timeStamp: (
         <Badge bg="green.600">
-          <Text color="white">  Pronto</Text>
+          <Text color="white"> Pronto</Text>
         </Badge>
       ),
       recentText: "BI",
@@ -83,7 +84,7 @@ const ActivityScreen = () => {
   ];
 
   return (
-    <>
+    <View>
       <VStack mt="5" w="95%" space={5} alignSelf="center">
         <Input
           placeholder="Pesquisa"
@@ -178,7 +179,7 @@ const ActivityScreen = () => {
           keyExtractor={(item) => item.id}
         />
       </Box>
-    </>
+    </View>
   );
 };
 export default ActivityScreen;
