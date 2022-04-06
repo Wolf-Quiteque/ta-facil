@@ -27,20 +27,31 @@ const AddScreen = () => {
 
   const [loading, setloading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const onClose = () => setIsOpen(false);
-
+  const [docresul, setdocresul] = useState(null);
+  const onClose = () => {
+    setIsOpen(false);
+    setdoc(null);
+    setbi(null);
+  };
+  const handleChange = (text) => setbi(text);
   const cancelRef = useRef();
 
   const VerEstado = async () => {
     setloading(true);
     const res = await axios.get("docs/" + bi);
     setloading(false);
+
     if (res.data == null) {
-      console.log("Nehum registo encontrado");
+      setdocresul("Nenhum Registro enconrado");
     } else {
       setdoc(res.data);
-      setIsOpen(true);
+      if (res.data.tratado == "true") {
+        setdocresul("Documento Pronto!");
+      } else {
+        setdocresul("Documento Pendente.");
+      }
     }
+    setIsOpen(true);
   };
 
   return (
@@ -61,10 +72,9 @@ const AddScreen = () => {
             <FormControl.Label>Numero BI</FormControl.Label>
             <Input
               variant="filled"
+              value={bi}
               placeholder="Digite o Numero do BI"
-              onChange={(e) => {
-                setbi(e.target.value);
-              }}
+              onChangeText={handleChange}
             />
           </FormControl>
           <FormControl mb="5">
@@ -158,17 +168,17 @@ const AddScreen = () => {
           <AlertDialog.Header fontSize="lg" fontWeight="bold">
             {doc && doc.nome}
           </AlertDialog.Header>
-          <AlertDialog.Body>
-            {doc && doc.tratado ? "Pronto a Levantar" : "pendente"}
-          </AlertDialog.Body>
+          <AlertDialog.Body>{docresul && docresul}</AlertDialog.Body>
           <AlertDialog.Footer>
             <Button colorScheme="green" onPress={onClose} ml="6">
               sair
             </Button>
 
-            <Button colorScheme="warning" onPress={onClose} ml="3">
-              Entrega ao Domicílio
-            </Button>
+            {doc && doc.tratado == "true" && (
+              <Button colorScheme="warning" onPress={onClose} ml="3">
+                Entrega ao Domicílio
+              </Button>
+            )}
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>
