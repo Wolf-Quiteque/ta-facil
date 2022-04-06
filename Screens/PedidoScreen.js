@@ -4,7 +4,7 @@ import {
   Button,
   IconButton,
   Pressable,
-  Icon,
+  TextArea,
   Text,
   HStack,
   Center,
@@ -20,9 +20,12 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
-const AddScreen = () => {
+const PedidoScreen = () => {
   const [bi, setbi] = useState();
   const [doc, setdoc] = useState();
+  const [nome, setnome] = useState();
+  const [email, setemail] = useState();
+  const [tel, settel] = useState();
 
   const [loading, setloading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -57,19 +60,41 @@ const AddScreen = () => {
       >
         <Box>
           <FormControl mb="5">
-            <FormControl.Label>Numero BI</FormControl.Label>
+            <FormControl.Label>Nome </FormControl.Label>
             <Input
               variant="filled"
-              placeholder="Digite o Numero do BI"
+              placeholder="Digite o seu Nome"
               onChange={(e) => {
-                setbi(e.target.value);
+                setnome(e.target.value);
               }}
             />
+          </FormControl>
+          <FormControl>
+            <FormControl.Label>Número de Telfone</FormControl.Label>
+            <Input
+              type="number"
+              variant="filled"
+              onChange={(e) => {
+                settel(e.target.value);
+              }}
+            />
+
+            <FormControl mb="5">
+              <FormControl.Label>Email</FormControl.Label>
+              <Input
+                variant="filled"
+                placeholder="Digite se Email"
+                onChange={(e) => {
+                  setemail(e.target.value);
+                }}
+              />
+            </FormControl>
           </FormControl>
           <FormControl mb="5">
             <FormControl.Label>Tipo de Documento</FormControl.Label>
             <Select
               // selectedValue={service}
+              variant="filled"
               minWidth="200"
               accessibilityLabel="Choose Service"
               placeholder="Seleciona o Documento"
@@ -82,20 +107,24 @@ const AddScreen = () => {
               mt={1}
               // onValueChange={(itemValue) => setService(itemValue)}
             >
-              <Select.Item label="BI" value="ux" />
-              <Select.Item label="Passaporte" value="web" />
-              <Select.Item label="Livrete Automóvel" value="cross" />
+              <Select.Item label="Renovação do BI" value="ux" />
+              <Select.Item label="Renovação Carta de Condução" value="ux" />
+              <Select.Item label="Cartão Municipe" value="web" />
+              <Select.Item label="Cédula Pessoal" value="cross" />
               <Select.Item label="Carta de Condução" value="ui" />
-              <Select.Item label="Visto" value="ui" />
-              <Select.Item label="Cartão Multicaixa" value="ui" />
-              <Select.Item label="Outros" value="ui" />
             </Select>
           </FormControl>
+
+          <FormControl mb="5">
+            <FormControl.Label>Morada</FormControl.Label>
+            <TextArea variant="filled" h={70} w="100%" />
+          </FormControl>
+
           <Divider />
         </Box>
       </Stack>
 
-      <HStack mt="7" space={1} justifyContent="center">
+      <HStack mt="2" space={1} justifyContent="center">
         {loading ? (
           <Button
             h="100"
@@ -120,26 +149,11 @@ const AddScreen = () => {
             </Center>
           </Button>
         ) : (
-          <Button
-            h="100"
-            colorScheme="yellow"
-            width="80%"
-            bg="coolGray.700"
-            rounded="md"
-            shadow={3}
-            onPress={() => {
-              VerEstado();
-            }}
-          >
+          <Button bg="coolGray.700" h="12" colorScheme="primary">
             <Center mt="5">
-              <FontAwesome5
-                name="fingerprint"
-                mt="10"
-                color="#f2aa00"
-                size={30}
-              />
+              <FontAwesome5 name="fingerprint" mt="1" color="white" size={15} />
               <Text color="white" bold>
-                Ver Estado
+                Submeter
               </Text>{" "}
               {/* <Spinner color="warning.500" /> */}
             </Center>
@@ -175,4 +189,4 @@ const AddScreen = () => {
   );
 };
 
-export default AddScreen;
+export default PedidoScreen;

@@ -17,7 +17,7 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Ionic from "react-native-vector-icons/Ionicons";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <>
       <Center>
@@ -54,59 +54,101 @@ const HomeScreen = () => {
         </VStack>
       </Center>
       <HStack space={6} justifyContent="center">
-        <Center h="20" w="20" bg="coolGray.700" rounded="md" shadow={3}>
+        <Button
+          h="20"
+          w="20"
+          bg="coolGray.700"
+          rounded="md"
+          shadow={3}
+          onPress={() => navigation.navigate("Estados")}
+        >
           <FontAwesome5 name="file" color="#f2aa00" size={30} />
 
           <Text color="white" bold>
             Docs
           </Text>
-        </Center>
+        </Button>
 
-        <Center h="20" w="20" bg="coolGray.700" rounded="md" shadow={3}>
+        <Button
+          h="20"
+          w="20"
+          bg="coolGray.700"
+          rounded="md"
+          shadow={3}
+          onPress={() => navigation.navigate("Minha Conta")}
+        >
           {" "}
           <FontAwesome5 name="users" color="#f2aa00" size={30} />
           <Text color="white" bold>
             Conta
           </Text>{" "}
-        </Center>
-        <Center h="20" w="20" bg="coolGray.700" rounded="md" shadow={3}>
+        </Button>
+        <Button
+          h="20"
+          w="20"
+          bg="coolGray.700"
+          rounded="md"
+          shadow={3}
+          onPress={() => navigation.navigate("Suporte")}
+        >
           {" "}
           <FontAwesome5 name="hands-helping" color="#f2aa00" size={30} />
           <Text color="white" bold>
             Suporte
           </Text>{" "}
-        </Center>
+        </Button>
       </HStack>
       <HStack mt="7" space={1} justifyContent="center">
-        <Center h="100" width="80%" bg="coolGray.700" rounded="md" shadow={3}>
+        <Button
+          h="100"
+          width="80%"
+          bg="coolGray.700"
+          rounded="md"
+          shadow={3}
+          onPress={() => navigation.navigate("Serviços de Entrega")}
+        >
           <Center mt="5">
             <FontAwesome5 name="opencart" mt="10" color="#f2aa00" size={30} />
             <Text color="white" bold>
               Serviço de Entrega
             </Text>{" "}
           </Center>
-        </Center>
+        </Button>
       </HStack>
       <HStack mt="7" space={1} justifyContent="center">
-        <Center h="100" width="80%" bg="coolGray.700" rounded="md" shadow={3}>
+        <Button
+          h="100"
+          width="80%"
+          bg="coolGray.700"
+          rounded="md"
+          shadow={3}
+          onPress={() => navigation.navigate("Saldo")}
+        >
           <Center mt="5">
             <FontAwesome5 name="coins" mt="10" color="#f2aa00" size={30} />
             <Text color="white" bold>
               Saldo
             </Text>{" "}
           </Center>
-        </Center>
+        </Button>
       </HStack>
 
       <HStack mt="7" space={1} justifyContent="center">
-        <Center h="100" width="80%" bg="coolGray.700" rounded="md" shadow={3}>
+        <Button
+          h="100"
+          width="80%"
+          bg="coolGray.700"
+          rounded="md"
+          shadow={3}
+          onPress={() => navigation.navigate("Pedido")}
+        >
           <Center mt="5">
             <FontAwesome5 name="tasks" mt="10" color="#f2aa00" size={30} />
             <Text color="white" bold>
               Pedidos
             </Text>{" "}
           </Center>
-        </Center>
+        </Button>
       </HStack>
     </>
   );
