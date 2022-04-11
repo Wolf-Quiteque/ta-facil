@@ -6,25 +6,35 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import "react-native-gesture-handler";
 
-import BottomTabNavigator from "./navigation/TabNavigator";
-
+import BottomTabNavigator from "./src/navigation/TabNavigator";
+import AppRoute from "./src/navigation/Navigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { NativeBaseProvider } from "native-base";
+import { NativeBaseProvider, extendTheme } from "native-base";
 import axios from "axios";
 
-import { MainStackNavigator } from "./navigation/StackNavigator";
+import { MainStackNavigator } from "./src/navigation/StackNavigator";
 
 axios.defaults.baseURL = "https://tafacil-api.herokuapp.com/api/";
 // axios.defaults.baseURL = "http://localhost:8800/api/";
 
+// Define the config
+const config = {
+  useSystemColorMode: false,
+  initialColorMode: "dark",
+};
+
+// extend the theme
+const customTheme = extendTheme({ config });
+
 export default function App() {
   const Tab = createBottomTabNavigator();
+
   return (
     <>
       <NavigationContainer>
         <StatusBar backgroundColor="#54cbff" barStyle="dark-content" />
-        <NativeBaseProvider>
-          <BottomTabNavigator />
+        <NativeBaseProvider theme={customTheme}>
+          <AppRoute />
         </NativeBaseProvider>
       </NavigationContainer>
     </>
