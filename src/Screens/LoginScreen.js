@@ -11,7 +11,7 @@ import {
   Center,
 } from "native-base";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
     <Center w="100%" height="100%" bg="coolGray.800">
       <Box safeArea p="2" py="8" w="90%" mt="5%" maxW="290" bg="coolGray.800">
@@ -77,6 +77,7 @@ const LoginScreen = () => {
                 fontSize: "sm",
               }}
               href="#"
+              onPress={() => navigation.navigate("Iinscrever-se")}
             >
               Criar Conta
             </Link>

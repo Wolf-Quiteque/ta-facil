@@ -6,6 +6,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import "react-native-gesture-handler";
 
+import { Provider } from "react-redux";
+import { store } from "./src/redux/store";
+
 import BottomTabNavigator from "./src/navigation/TabNavigator";
 import AppRoute from "./src/navigation/Navigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -31,12 +34,14 @@ export default function App() {
 
   return (
     <>
-      <NavigationContainer>
-        <StatusBar backgroundColor="#54cbff" barStyle="dark-content" />
-        <NativeBaseProvider theme={customTheme}>
-          <AppRoute />
-        </NativeBaseProvider>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <StatusBar backgroundColor="#54cbff" barStyle="dark-content" />
+          <NativeBaseProvider theme={customTheme}>
+            <AppRoute />
+          </NativeBaseProvider>
+        </NavigationContainer>
+      </Provider>
     </>
   );
 }

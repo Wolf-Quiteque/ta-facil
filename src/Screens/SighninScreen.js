@@ -11,7 +11,7 @@ import {
   Center,
 } from "native-base";
 
-const SighninScreen = () => {
+const SighninScreen = ({ navigation }) => {
   return (
     <Center w="100%" height="100%" bg="coolGray.800">
       <Box safeArea p="2" py="8" w="90%" mt="5%" maxW="290" bg="coolGray.800">
@@ -23,7 +23,7 @@ const SighninScreen = () => {
             color: "warmGray.50",
           }}
         >
-          Benvindo
+          Registrar agora
         </Heading>
         <Heading
           mt="1"
@@ -34,31 +34,31 @@ const SighninScreen = () => {
           fontWeight="medium"
           size="xs"
         >
-          iniciar sessão para continuar
+          Verifique o seu documento
         </Heading>
 
         <VStack space={3} mt="5">
           <FormControl>
-            <FormControl.Label>Email / Tel</FormControl.Label>
+            <FormControl.Label> Nome Completo</FormControl.Label>
             <Input />
           </FormControl>
+
+          <FormControl>
+            <FormControl.Label>Email</FormControl.Label>
+            <Input />
+          </FormControl>
+
+          <FormControl>
+            <FormControl.Label>Tel</FormControl.Label>
+            <Input />
+          </FormControl>
+
           <FormControl>
             <FormControl.Label>Palavra Passe</FormControl.Label>
             <Input type="password" />
-            <Link
-              _text={{
-                fontSize: "xs",
-                fontWeight: "500",
-                color: "indigo.500",
-              }}
-              alignSelf="flex-end"
-              mt="1"
-            >
-              Esqueceu senha?
-            </Link>
           </FormControl>
           <Button mt="2" colorScheme="indigo">
-            Iniciar Sessão
+            Registrar
           </Button>
           <HStack mt="6" justifyContent="center">
             <Text
@@ -68,7 +68,7 @@ const SighninScreen = () => {
                 color: "warmGray.200",
               }}
             >
-              Novo Usúario.{" "}
+              Já tens conta?{" "}
             </Text>
             <Link
               _text={{
@@ -77,8 +77,9 @@ const SighninScreen = () => {
                 fontSize: "sm",
               }}
               href="#"
+              onPress={() => navigation.navigate("Login")}
             >
-              Criar Conta
+              Iniciar sessão
             </Link>
           </HStack>
         </VStack>
